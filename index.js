@@ -7,7 +7,11 @@ require('dotenv').config()
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ["https://chinese-j0watp27a-timothy-lus-projects.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}))
 
 app.use('/api/characters', apiRoutes)
 mongoose.connect(process.env.MONGO_URI, )
