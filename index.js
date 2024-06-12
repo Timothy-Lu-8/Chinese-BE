@@ -1,13 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const apiRoutes = require('./routes/characters')
-//const cors = require('cors')
+const cors = require('cors')
 require('dotenv').config()
 
 const app = express()
 
 app.use(express.json())
-//app.use(cors())
+app.use(cors())
 
 app.use('/api/characters', apiRoutes)
 mongoose.connect(process.env.MONGO_URI, )
