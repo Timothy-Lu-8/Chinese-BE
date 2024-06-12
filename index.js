@@ -6,6 +6,10 @@ require('dotenv').config()
 
 const app = express()
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 app.use(express.json())
 app.use(cors({
     origin: ["https://chinese-j0watp27a-timothy-lus-projects.vercel.app"],
